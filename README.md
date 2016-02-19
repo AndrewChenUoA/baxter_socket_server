@@ -1,16 +1,16 @@
 # baxter_socket_server
 
-This repository contains files that allow developers to interact and control the Baxter humanoid robot in any programming language (that can access sockets). This removes the need for the programmer to be familiar with ROS or Python.
+This repository contains files that allow developers to interact and control the Baxter humanoid robot (http://www.rethinkrobotics.com/baxter/) in any programming language (that can access sockets). This removes the need for the programmer to be familiar with ROS or Python. This capability has been demonstrated in Java and SystemJ.
 
 This is done by hosting a socket server on Baxter, which can receive requests in a language agnostic manner. It converts those requests to ROSPy commands, acting as a bridge between the developer's application and Baxter.
 
-Additionally, a script abstracting control of the arm to use inverse kinematics is also included. Example scripts of how to access the server are also included.
+Additionally, scripts abstracting control of the arm to use inverse kinematics and simplifying sonar data accesses are also included. Examples of how to access the server are also included.
 
 ##To use:
 
-ssh into Baxter, and copy the socketserver.py file onto Baxter. If you want to use the limbs or sonar, you should also copy baxter_arm_control.py and sonar_interface.py
+ssh into Baxter, and copy socketserver.py, baxter_arm_control.py, and sonar_interface.py files onto Baxter.
 
-Run the socket_server using python socketserver.py. Some initialisation sequence is executed to ensure that the arms and cameras are in a usable state. The server is then started on port 10111.
+Run the socket_server on Baxter (or over ssh) using python socketserver.py. Some initialisation sequence is executed to ensure that the arms and cameras are in a usable state. The server is then started on port 10111. Leave it running, and you can send commands to Baxter from a different computer (or even the same computer) over sockets.
 
 Use Ctrl+\ to crash out of the server.
 
